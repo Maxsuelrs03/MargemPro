@@ -71,11 +71,12 @@ export function simulateOffer(
     case 'desconto-progressivo':
       return simProgressive(f)
     case 'combo-complementares':
-    case 'combo-liquidar':
     case 'produto-com-acessorio':
     case 'produtos-parados':
     case 'oferta-tematica':
       return simCombo(f)
+    case 'combo-liquidar':
+      return simKit(f)
     case 'kit-preco-fechado':
       return simKit(f)
     case 'leve-3-pague-2':
@@ -402,7 +403,7 @@ function simCombo(f: Record<string, number>): OfferSimResult | null {
   const price1 = f.price1 || 0
   const cost2 = f.cost2 || 0
   const price2 = f.price2 || 0
-  const comboPrice = f.comboPrice || 0
+  const comboPrice = f.comboPrice || f.bundlePrice || 0
   const additionalCosts = f.additionalCosts || 0
   const feePercent = f.feePercent || 0
   const feeFixed = f.feeFixed || 0
@@ -436,7 +437,7 @@ function simCombo(f: Record<string, number>): OfferSimResult | null {
 function simKit(f: Record<string, number>): OfferSimResult | null {
   const totalCost = f.totalCost || 0
   const totalSeparatePrice = f.totalSeparatePrice || 0
-  const kitPrice = f.kitPrice || 0
+  const kitPrice = f.kitPrice || f.comboPrice || 0
   const itemCount = Math.round(f.itemCount || 0)
   const additionalCosts = f.additionalCosts || 0
   const feePercent = f.feePercent || 0
