@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Layout, type Page } from './components/Layout'
 import { Calculator } from './components/Calculator'
-import { Offers } from './components/Offers'
+import { OffersBank } from './components/OffersBank'
 
 export default function App() {
   const [page, setPage] = useState<Page>('calculadora')
@@ -9,7 +9,7 @@ export default function App() {
   return (
     <Layout currentPage={page} onNavigate={setPage}>
       {page === 'calculadora' && <Calculator />}
-      {page === 'ofertas' && <Offers />}
+      {page === 'ofertas' && <OffersBank />}
     </Layout>
   )
 }

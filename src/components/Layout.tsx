@@ -11,7 +11,7 @@ interface LayoutProps {
 
 const navItems: { id: Page; label: string; icon: typeof CalculatorIcon }[] = [
   { id: 'calculadora', label: 'Calculadora', icon: CalculatorIcon },
-  { id: 'ofertas', label: 'Ofertas', icon: TagIcon },
+  { id: 'ofertas', label: 'Banco de Ofertas', icon: TagIcon },
 ]
 
 export function Layout({ currentPage, onNavigate, children }: LayoutProps) {
@@ -115,7 +115,7 @@ export function Layout({ currentPage, onNavigate, children }: LayoutProps) {
 
       {/* Main content */}
       <main className="lg:pl-64">
-        <div className="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+        <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
           {children}
         </div>
       </main>
