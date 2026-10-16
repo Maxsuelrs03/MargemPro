@@ -66,3 +66,75 @@ export function CheckIcon({ className = 'w-5 h-5' }: IconProps) {
     </svg>
   )
 }
+
+export function FlowIcon({ className = 'w-5 h-5' }: IconProps) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h6v6h-6v-6ZM14.25 6.75h6v6h-6v-6ZM3.75 16.5h6v3.75h-6V16.5ZM14.25 16.5h6v3.75h-6V16.5Z" />
+    </svg>
+  )
+}
+
+export function FolderIcon({ className = 'w-5 h-5' }: IconProps) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
+    </svg>
+  )
+}
+
+export function MegaphoneIcon({ className = 'w-5 h-5' }: IconProps) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m3.913 2.756c.394-.28.925-.44 1.5-.44h.75c.704 0 1.402.03 2.09.09m-3.913 2.756L21.75 6.75v10.5l-5.903-2.756M6.75 18a4.5 4.5 0 0 0 3.75-4.5v-3a4.5 4.5 0 0 0-3.75-4.5m3.75 12a4.5 4.5 0 0 1-3.75-4.5v-3a4.5 4.5 0 0 1 3.75-4.5m-9 9h.008v.008H1.5V18Z" />
+    </svg>
+  )
+}
+
+export function ArrowRightIcon({ className = 'w-5 h-5' }: IconProps) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+    </svg>
+  )
+}
+
+export function SaveIcon({ className = 'w-5 h-5' }: IconProps) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 21a3 3 0 0 0 3-3v-4.5a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3V18a3 3 0 0 0 3 3h15ZM1.5 12V7.5A2.25 2.25 0 0 1 3.75 5.25h2.25v6h-4.5ZM6.75 5.25v6h10.5v-6H6.75ZM16.5 5.25h3.75A2.25 2.25 0 0 1 22.5 7.5V12h-6v-6.75Z" />
+    </svg>
+  )
+}
+
+export function TrashIcon({ className = 'w-5 h-5' }: IconProps) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+    </svg>
+  )
+}
+
+export function DownloadIcon({ className = 'w-5 h-5' }: IconProps) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+    </svg>
+  )
+}
+
+export function UploadIcon({ className = 'w-5 h-5' }: IconProps) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
+    </svg>
+  )
+}
+
+export function DuplicateIcon({ className = 'w-5 h-5' }: IconProps) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 17.25v-4.5a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 12.75v4.5A2.25 2.25 0 0 0 6 19.5h7.5a2.25 2.25 0 0 0 2.25-2.25Z M9.75 9.75v-1.5A2.25 2.25 0 0 1 12 6h6a2.25 2.25 0 0 1 2.25 2.25v4.5A2.25 2.25 0 0 1 18 15h-1.5" />
+    </svg>
+  )
+}

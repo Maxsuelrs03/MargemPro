@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { CalculatorIcon, TagIcon, StoreIcon, MenuIcon, CloseIcon } from './Icons'
-import { MessageIcon } from './PresentationIcons'
+import { MessageIcon, FlowIcon, FolderIcon, MegaphoneIcon } from './PresentationIcons'
 
-export type Page = 'calculadora' | 'ofertas' | 'apresentacao'
+export type Page = 'calculadora' | 'ofertas' | 'apresentacao' | 'fluxo' | 'produtos' | 'campanhas'
 
 interface LayoutProps {
   currentPage: Page
@@ -11,9 +11,12 @@ interface LayoutProps {
 }
 
 const navItems: { id: Page; label: string; icon: typeof CalculatorIcon }[] = [
+  { id: 'fluxo', label: 'Fluxo Guiado', icon: FlowIcon },
+  { id: 'produtos', label: 'Meus Produtos', icon: FolderIcon },
   { id: 'calculadora', label: 'Calculadora', icon: CalculatorIcon },
   { id: 'ofertas', label: 'Banco de Ofertas', icon: TagIcon },
   { id: 'apresentacao', label: 'Apresentação', icon: MessageIcon },
+  { id: 'campanhas', label: 'Campanhas', icon: MegaphoneIcon },
 ]
 
 export function Layout({ currentPage, onNavigate, children }: LayoutProps) {
