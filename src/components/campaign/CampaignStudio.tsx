@@ -7,7 +7,8 @@ import {
   stylePresets,
 } from '../../lib/campaignData'
 import { formatCurrency } from '../../lib/format'
-import { CopyIcon, DownloadIcon } from '../Icons'
+import { CopyIcon } from '../Icons'
+import { DownloadIcon } from '../PresentationIcons'
 import { parseNumber } from '../../lib/numbers'
 
 interface CampaignDraftLocal {

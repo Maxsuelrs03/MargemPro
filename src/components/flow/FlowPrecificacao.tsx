@@ -12,7 +12,7 @@ const statusConfig: Record<MarginStatus, { label: string; bg: string; text: stri
 }
 
 export function FlowPrecificacao() {
-  const { state, pricingResult, actions } = useMargemPro()
+  const { state, pricingResult } = useMargemPro()
   const product = state.flow.product
 
   const result = useMemo(() => pricingResult, [pricingResult])

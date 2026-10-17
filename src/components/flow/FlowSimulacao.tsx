@@ -2,7 +2,8 @@ import { useState, useMemo, useCallback } from 'react'
 import { useMargemPro } from '../../state/AppContext'
 import { strategies } from '../../lib/strategyData'
 import { simulateOffer, type OfferSimResult } from '../../lib/offerSimulation'
-import { categories, type MarginStatus } from '../../lib/strategyTypes'
+import { categories } from '../../lib/strategyTypes'
+import { type MarginStatus } from '../../lib/pricing'
 import { formatCurrency } from '../../lib/format'
 import { productSignature, type SavedOffer } from '../../state/types'
 import {
@@ -10,11 +11,9 @@ import {
   AlertIcon,
   TrendingDownIcon,
   CopyIcon,
-  SaveIcon,
-  ArrowLeftIcon,
   TargetIcon,
 } from '../Icons'
-import { ChevronDownIcon } from '../Icons'
+import { SaveIcon } from '../PresentationIcons'
 
 const statusConfig: Record<MarginStatus, { label: string; bg: string; text: string; border: string }> = {
   good: { label: 'Margem saudável', bg: 'bg-green-50', text: 'text-green-700', border: 'border-green-200' },

@@ -3,23 +3,22 @@ import { useMargemPro } from '../state/AppContext'
 import { type Product, type SavedOffer, productSignature, createEmptyProduct } from '../state/types'
 import { formatCurrency } from '../lib/format'
 import { calculatePricing } from '../lib/pricing'
-import { strategies } from '../lib/strategyData'
-import { STORAGE_KEYS, downloadJSON } from '../state/persistence'
+import { downloadJSON } from '../state/persistence'
 import { uid } from '../lib/id'
 import {
   PlusIcon,
-  TrashIcon,
-  EditIcon,
   SearchIcon,
-  DownloadIcon,
-  UploadIcon,
   ArrowLeftIcon,
-  CopyIcon,
   CheckCircleIcon,
   AlertIcon,
-  RefreshIcon,
 } from './Icons'
-import { DuplicateIcon } from './PresentationIcons'
+import {
+  TrashIcon,
+  EditIcon,
+  DownloadIcon,
+  UploadIcon,
+  DuplicateIcon,
+} from './PresentationIcons'
 
 type Tab = 'products' | 'offers'
 
@@ -223,7 +222,6 @@ export function Products() {
             </div>
           )}
           {filteredOffers.map((o) => {
-            const strategy = strategies.find((s) => s.id === o.strategyId)
             const sig = productSignature(state.flow.product)
             const stale = o.productSignature !== sig && state.flow.product.cost > 0
             return (

@@ -1,5 +1,5 @@
 import { useMargemPro } from '../../state/AppContext'
-import { FLOW_STEPS, type FlowStep, productSignature } from '../../state/types'
+import { FLOW_STEPS, type FlowStep } from '../../state/types'
 import { Stepper } from '../ui/Stepper'
 import { FlowProduto } from './FlowProduto'
 import { FlowPrecificacao } from './FlowPrecificacao'
@@ -12,7 +12,7 @@ import { ArrowRightIcon, SaveIcon } from '../PresentationIcons'
 import { AlertIcon } from '../Icons'
 
 export function FlowShell() {
-  const { state, actions, pricingResult, recalcNeeded } = useMargemPro()
+  const { state, actions, recalcNeeded } = useMargemPro()
   const currentStep = state.flow.step
   const currentIndex = FLOW_STEPS.findIndex((s) => s.id === currentStep)
 
@@ -37,7 +37,6 @@ export function FlowShell() {
   }
 
   function saveProgress() {
-    const sig = productSignature(state.flow.product)
     actions.patchProduct({})
     actions.setStep(currentStep)
     if (state.flow.product.cost > 0) {
