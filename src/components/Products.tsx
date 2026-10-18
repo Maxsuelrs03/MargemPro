@@ -5,6 +5,7 @@ import { formatCurrency } from '../lib/format'
 import { calculatePricing } from '../lib/pricing'
 import { downloadJSON } from '../state/persistence'
 import { uid } from '../lib/id'
+import { DecimalInput } from './ui/DecimalInput'
 import {
   PlusIcon,
   SearchIcon,
@@ -300,20 +301,20 @@ function ProductEditor({ product, onSave, onCancel }: {
             <label className="input-label" htmlFor="pe-cost">Custo <span className="text-red-500">*</span></label>
             <div className="relative">
               <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">R$</span>
-              <input id="pe-cost" type="text" inputMode="decimal" value={draft.cost || ''} onChange={(e) => update('cost', parseFloat(e.target.value.replace(',', '.')) || 0)} className="input-field pl-11" />
+              <DecimalInput id="pe-cost" value={draft.cost} onValueChange={(v) => update('cost', v)} placeholder="0,00" className="input-field pl-11" />
             </div>
           </div>
           <div>
             <label className="input-label" htmlFor="pe-add">Despesas adicionais</label>
             <div className="relative">
               <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">R$</span>
-              <input id="pe-add" type="text" inputMode="decimal" value={draft.additionalCosts || ''} onChange={(e) => update('additionalCosts', parseFloat(e.target.value.replace(',', '.')) || 0)} className="input-field pl-11" />
+              <DecimalInput id="pe-add" value={draft.additionalCosts} onValueChange={(v) => update('additionalCosts', v)} placeholder="0,00" className="input-field pl-11" />
             </div>
           </div>
           <div>
             <label className="input-label" htmlFor="pe-fee">Taxa (%)</label>
             <div className="relative">
-              <input id="pe-fee" type="text" inputMode="decimal" value={draft.feePercent || ''} onChange={(e) => update('feePercent', parseFloat(e.target.value.replace(',', '.')) || 0)} className="input-field pr-9" />
+              <DecimalInput id="pe-fee" value={draft.feePercent} onValueChange={(v) => update('feePercent', v)} placeholder="0" className="input-field pr-9" />
               <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-slate-400">%</span>
             </div>
           </div>
@@ -321,12 +322,12 @@ function ProductEditor({ product, onSave, onCancel }: {
             <label className="input-label" htmlFor="pe-feefix">Taxa fixa</label>
             <div className="relative">
               <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">R$</span>
-              <input id="pe-feefix" type="text" inputMode="decimal" value={draft.feeFixed || ''} onChange={(e) => update('feeFixed', parseFloat(e.target.value.replace(',', '.')) || 0)} className="input-field pl-11" />
+              <DecimalInput id="pe-feefix" value={draft.feeFixed} onValueChange={(v) => update('feeFixed', v)} placeholder="0,00" className="input-field pl-11" />
             </div>
           </div>
           <div className="sm:col-span-2">
             <label className="input-label" htmlFor="pe-margin">Margem desejada (%) <span className="text-red-500">*</span></label>
-            <input id="pe-margin" type="text" inputMode="decimal" value={draft.marginPercent || ''} onChange={(e) => update('marginPercent', parseFloat(e.target.value.replace(',', '.')) || 0)} className="input-field pr-9" />
+            <DecimalInput id="pe-margin" value={draft.marginPercent} onValueChange={(v) => update('marginPercent', v)} placeholder="30" className="input-field pr-9" />
           </div>
         </div>
 

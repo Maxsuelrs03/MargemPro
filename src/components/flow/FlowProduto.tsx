@@ -1,5 +1,6 @@
 import { useMargemPro } from '../../state/AppContext'
 import { formatCurrency } from '../../lib/format'
+import { DecimalInput } from '../ui/DecimalInput'
 
 export function FlowProduto() {
   const { state, actions } = useMargemPro()
@@ -49,12 +50,10 @@ export function FlowProduto() {
             </label>
             <div className="relative">
               <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">R$</span>
-              <input
+              <DecimalInput
                 id="fp-cost"
-                type="text"
-                inputMode="decimal"
-                value={product.cost || ''}
-                onChange={(e) => update('cost', parseFloat(e.target.value.replace(',', '.')) || 0)}
+                value={product.cost}
+                onValueChange={(v) => update('cost', v)}
                 placeholder="0,00"
                 className="input-field pl-11"
               />
@@ -65,12 +64,10 @@ export function FlowProduto() {
             <label className="input-label" htmlFor="fp-add">Despesas adicionais</label>
             <div className="relative">
               <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">R$</span>
-              <input
+              <DecimalInput
                 id="fp-add"
-                type="text"
-                inputMode="decimal"
-                value={product.additionalCosts || ''}
-                onChange={(e) => update('additionalCosts', parseFloat(e.target.value.replace(',', '.')) || 0)}
+                value={product.additionalCosts}
+                onValueChange={(v) => update('additionalCosts', v)}
                 placeholder="0,00"
                 className="input-field pl-11"
               />
@@ -81,12 +78,10 @@ export function FlowProduto() {
           <div>
             <label className="input-label" htmlFor="fp-fee-pct">Taxa sobre a venda (%)</label>
             <div className="relative">
-              <input
+              <DecimalInput
                 id="fp-fee-pct"
-                type="text"
-                inputMode="decimal"
-                value={product.feePercent || ''}
-                onChange={(e) => update('feePercent', parseFloat(e.target.value.replace(',', '.')) || 0)}
+                value={product.feePercent}
+                onValueChange={(v) => update('feePercent', v)}
                 placeholder="0"
                 className="input-field pr-9"
               />
@@ -99,12 +94,10 @@ export function FlowProduto() {
             <label className="input-label" htmlFor="fp-fee-fix">Taxa fixa por venda</label>
             <div className="relative">
               <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">R$</span>
-              <input
+              <DecimalInput
                 id="fp-fee-fix"
-                type="text"
-                inputMode="decimal"
-                value={product.feeFixed || ''}
-                onChange={(e) => update('feeFixed', parseFloat(e.target.value.replace(',', '.')) || 0)}
+                value={product.feeFixed}
+                onValueChange={(v) => update('feeFixed', v)}
                 placeholder="0,00"
                 className="input-field pl-11"
               />
@@ -116,12 +109,10 @@ export function FlowProduto() {
               Margem de lucro desejada <span className="text-red-500">*</span>
             </label>
             <div className="relative">
-              <input
+              <DecimalInput
                 id="fp-margin"
-                type="text"
-                inputMode="decimal"
-                value={product.marginPercent || ''}
-                onChange={(e) => update('marginPercent', parseFloat(e.target.value.replace(',', '.')) || 0)}
+                value={product.marginPercent}
+                onValueChange={(v) => update('marginPercent', v)}
                 placeholder="30"
                 className="input-field pr-9"
               />
