@@ -5,6 +5,7 @@ import { simulateOffer, type OfferSimResult } from '../../lib/offerSimulation'
 import { categories } from '../../lib/strategyTypes'
 import { type MarginStatus } from '../../lib/pricing'
 import { formatCurrency } from '../../lib/format'
+import { numberToInputText } from '../../lib/numbers'
 import { productSignature, type SavedOffer } from '../../state/types'
 import {
   CheckCircleIcon,
@@ -89,10 +90,10 @@ export function FlowSimulacao() {
     const p = state.flow.product
     const vals: Record<string, string> = {}
     for (const field of selectedStrategy.fields) {
-      if (field.id === 'cost') vals[field.id] = String(p.cost)
-      else if (field.id === 'additionalCosts') vals[field.id] = String(p.additionalCosts)
-      else if (field.id === 'feePercent') vals[field.id] = String(p.feePercent)
-      else if (field.id === 'feeFixed') vals[field.id] = String(p.feeFixed)
+      if (field.id === 'cost') vals[field.id] = numberToInputText(p.cost)
+      else if (field.id === 'additionalCosts') vals[field.id] = numberToInputText(p.additionalCosts)
+      else if (field.id === 'feePercent') vals[field.id] = numberToInputText(p.feePercent)
+      else if (field.id === 'feeFixed') vals[field.id] = numberToInputText(p.feeFixed)
       else if (field.id === 'originalPrice' && pricingResult) vals[field.id] = String(state.flow.product.cost > 0 ? '' : '')
     }
     actions.setFieldValues(vals)

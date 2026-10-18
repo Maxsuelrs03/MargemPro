@@ -2,6 +2,7 @@ import { useMemo, useState, useCallback } from 'react'
 import { useMargemPro } from '../../state/AppContext'
 import { copyTemplates, channels, styles, type ChannelId, type StyleId } from '../../lib/copywritingData'
 import { generateMessages } from '../../lib/messageGenerator'
+import { priceToInputText } from '../../lib/numbers'
 import { CopyIcon } from '../Icons'
 import { EditIcon } from '../PresentationIcons'
 
@@ -16,8 +17,8 @@ export function FlowApresentacao() {
     const updated = { ...form }
     if (!updated.productName && product.name) updated.productName = product.name
     if (!updated.productType && product.type) updated.productType = product.type
-    if (!updated.normalPrice && simResult) updated.normalPrice = String(simResult.normalPrice || '')
-    if (!updated.promoPrice && simResult) updated.promoPrice = String(simResult.offerPrice || '')
+    if (!updated.normalPrice && simResult) updated.normalPrice = priceToInputText(simResult.normalPrice)
+    if (!updated.promoPrice && simResult) updated.promoPrice = priceToInputText(simResult.offerPrice)
     if (!updated.quantity && simResult) updated.quantity = String(simResult.unitCount || '')
     return updated
   }, [form, product, simResult])

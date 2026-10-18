@@ -328,3 +328,4 @@ runTestCounted('Margem baixa gera alerta', () => {
 })
 
 console.log(`\n══ Resultado: ${passed} passaram, ${failed} falharam ══\n`)
+if (failed > 0) throw new Error(`${failed} teste(s) falharam`)

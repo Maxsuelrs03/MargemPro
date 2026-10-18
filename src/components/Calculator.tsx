@@ -1,5 +1,6 @@
 import { useState, useMemo, useCallback } from 'react'
 import { formatCurrency, formatPercent } from '../lib/format'
+import { parseNumber } from '../lib/numbers'
 import { calculatePricing, calculateDiscount, getMarginStatus, type MarginStatus } from '../lib/pricing'
 import { AlertIcon, CheckCircleIcon, TrendingDownIcon, InfoIcon, CopyIcon } from './Icons'
 
@@ -8,16 +9,6 @@ const statusConfig: Record<MarginStatus, { label: string; bg: string; text: stri
   low: { label: 'Margem baixa', bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200' },
   warning: { label: 'Margem muito baixa', bg: 'bg-orange-50', text: 'text-orange-700', border: 'border-orange-200' },
   loss: { label: 'Prejuízo!', bg: 'bg-red-50', text: 'text-red-700', border: 'border-red-200' },
-}
-
-function parseNumber(value: string): number {
-  const cleaned = value.replace(/[^\d,.-]/g, '').replace(',', '.')
-  const num = parseFloat(cleaned)
-  return isNaN(num) ? 0 : num
-}
-
-function formatInput(value: string): string {
-  return value
 }
 
 export function Calculator() {
@@ -116,7 +107,7 @@ Calculado no MargemPro`
                   type="text"
                   inputMode="decimal"
                   value={cost}
-                  onChange={(e) => setCost(formatInput(e.target.value))}
+                  onChange={(e) => setCost(e.target.value)}
                   placeholder="0,00"
                   className="input-field pl-11"
                 />

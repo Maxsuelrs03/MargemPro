@@ -1,4 +1,5 @@
 import type { ChannelId, StyleId, CopyTemplate } from './copywritingData'
+import { tryParseNumber } from './numbers'
 
 export interface MessageFormData {
   productName: string
@@ -30,15 +31,15 @@ export interface GeneratedMessage {
 }
 
 function formatPrice(value: string): string {
-  const num = parseFloat(value.replace(',', '.'))
-  if (isNaN(num)) return value
+  const num = tryParseNumber(value)
+  if (num === null) return value
   return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(num)
 }
 
 function calcSavings(normal: string, promo: string): string {
-  const n = parseFloat(normal.replace(',', '.'))
-  const p = parseFloat(promo.replace(',', '.'))
-  if (isNaN(n) || isNaN(p) || n <= p) return ''
+  const n = tryParseNumber(normal)
+  const p = tryParseNumber(promo)
+  if (n === null || p === null || n <= p) return ''
   const diff = n - p
   return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(diff)
 }

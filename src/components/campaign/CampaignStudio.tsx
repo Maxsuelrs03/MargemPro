@@ -9,7 +9,7 @@ import {
 import { formatCurrency } from '../../lib/format'
 import { CopyIcon } from '../Icons'
 import { DownloadIcon } from '../PresentationIcons'
-import { parseNumber } from '../../lib/numbers'
+import { parseNumber, priceToInputText } from '../../lib/numbers'
 
 interface CampaignDraftLocal {
   format: AdFormatId
@@ -53,13 +53,13 @@ export function CampaignStudioInner({ flowMode: _flowMode }: { flowMode: boolean
     const sim = state.flow.simResult
     const product = state.flow.product
     if (sim) {
-      empty.price = String(sim.offerPrice.toFixed(2))
-      empty.originalPrice = String(sim.normalPrice.toFixed(2))
+      empty.price = priceToInputText(sim.offerPrice)
+      empty.originalPrice = priceToInputText(sim.normalPrice)
       empty.discountPercent = sim.customerSavingsPercent > 0 ? sim.customerSavingsPercent.toFixed(0) : ''
       empty.title = product.name || 'Oferta especial'
       empty.body = state.flow.presentation.benefit || ''
     } else if (pricingResult) {
-      empty.price = pricingResult.suggestedPrice.toFixed(2)
+      empty.price = priceToInputText(pricingResult.suggestedPrice)
       empty.title = product.name || 'Produto'
     }
     return empty

@@ -1,4 +1,5 @@
 import { calculateDiscount, getMarginStatus, type MarginStatus } from './pricing'
+import { parseNumber } from './numbers'
 
 export interface OfferDetailLine {
   label: string
@@ -28,13 +29,6 @@ export interface OfferSimResult {
   warnings: string[]
 }
 
-function parseNum(val: string | number): number {
-  if (typeof val === 'number') return val
-  const cleaned = val.replace(/[^\d,.-]/g, '').replace(',', '.')
-  const num = parseFloat(cleaned)
-  return isNaN(num) ? 0 : num
-}
-
 const fmt = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' })
 
 function money(v: number): string {
@@ -53,7 +47,7 @@ export function simulateOffer(
 ): OfferSimResult | null {
   const f: Record<string, number> = {}
   for (const [k, v] of Object.entries(rawFields)) {
-    f[k] = parseNum(v)
+    f[k] = parseNumber(v)
   }
 
   switch (strategyId) {

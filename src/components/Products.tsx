@@ -6,6 +6,7 @@ import { calculatePricing } from '../lib/pricing'
 import { downloadJSON } from '../state/persistence'
 import { uid } from '../lib/id'
 import { DecimalInput } from './ui/DecimalInput'
+import { priceToInputText } from '../lib/numbers'
 import {
   PlusIcon,
   SearchIcon,
@@ -90,8 +91,8 @@ export function Products() {
       presentation: offer.presentation || {
         productName: offer.productName,
         productType: '',
-        normalPrice: String(offer.simResult.normalPrice),
-        promoPrice: String(offer.simResult.offerPrice),
+        normalPrice: priceToInputText(offer.simResult.normalPrice),
+        promoPrice: priceToInputText(offer.simResult.offerPrice),
         benefit: '',
         audience: '',
         objective: '',
